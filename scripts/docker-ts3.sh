@@ -21,20 +21,20 @@ echo "Check if ts3server.ini exists in host-mounted volume."
 if [ -f $VOLUME/ts3server.ini ]; then
     echo "$VOLUME/ts3server.ini found. Using ini as config file."
 	echo "HINT: If this ini was transfered from another ts3-install you may want to make sure the following settings are active for the usage of host-mounted volume: (OPTIONAL)"
-	echo "query_ip_whitelist='$VOLUME/query_ip_whitelist.txt'"
-	echo "query_ip_backlist='$VOLUME/query_ip_blacklist.txt'"
-	echo "logpath='$VOLUME/logs/'"
-	echo "licensepath='$VOLUME/'" 
-	echo "inifile='$VOLUME/ts3server.ini'"
+	echo "query_ip_whitelist='/data/query_ip_whitelist.txt'"
+	echo "query_ip_backlist='/data/query_ip_blacklist.txt'"
+	echo "logpath='/data/logs/'"
+	echo "licensepath='/data/'" 
+	echo "inifile='/data/ts3server.ini'"
 	/opt/teamspeak3-server_linux-amd64/ts3server_minimal_runscript.sh \
-		inifile="$VOLUME/ts3server.ini"
+		inifile="/data/ts3server.ini"
 else
 	echo "$VOLUME/ts3server.ini not found. Creating new config file."
 	/opt/teamspeak3-server_linux-amd64/ts3server_minimal_runscript.sh \
-		query_ip_whitelist="$VOLUME/query_ip_whitelist.txt" \
-		query_ip_backlist="$VOLUME/query_ip_blacklist.txt" \
-		logpath="$VOLUME/logs/" \
-		licensepath="$VOLUME/" 
-		inifile="$VOLUME/ts3server.ini" \
+		query_ip_whitelist="/data/query_ip_whitelist.txt" \
+		query_ip_backlist="/data/query_ip_blacklist.txt" \
+		logpath="/data/logs/" \
+		licensepath="/data/" 
+		inifile="/data/ts3server.ini" \
 		createinifile=1 
 fi

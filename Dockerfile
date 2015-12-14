@@ -1,3 +1,4 @@
+#FROM alpine:latest
 FROM debian:latest
 
 MAINTAINER Michel Labbe
@@ -5,6 +6,8 @@ MAINTAINER Michel Labbe
 # build intial apt binary cache and install wget
 #RUN apt-get update \
 #    && apt-get install -y wget --no-install-recommends
+
+#RUN apk add --update bash && rm -rf /var/cache/apk/*
 
 # clean up cached binaries after install
 #RUN apt-get clean
@@ -26,8 +29,10 @@ VOLUME ["/data"]
 #ADD http://dl.4players.de/ts/releases/${TEAMSPEAK_VERSION}/teamspeak3-server_linux-amd64-${TEAMSPEAK_VERSION}.tar.gz /opt
 #RUN tar -C /opt -xzf /tmp/teamspeak3-server_linux-amd64-${TEAMSPEAK_VERSION}.tar.gz && rm /tmp/teamspeak3-server_linux-amd64-${TEAMSPEAK_VERSION}.tar.gz
 
-ADD http://dl.4players.de/ts/releases/3.0.11.4/teamspeak3-server_linux-amd64-3.0.11.4.tar.gz /tmp
-RUN tar -C /opt -xzf /tmp/teamspeak3-server_linux-amd64-3.0.11.4.tar.gz && rm /tmp/teamspeak3-server_linux-amd64-3.0.11.4.tar.gz
+ADD http://dl.4players.de/ts/releases/3.0.11.4/teamspeak3-server_linux-amd64-3.0.11.4.tar.gz /opt/
+RUN tar -C /opt -xzf /opt/teamspeak3-server_linux-amd64-3.0.11.4.tar.gz && rm /opt/teamspeak3-server_linux-amd64-3.0.11.4.tar.gz
+
+RUN ls /opt/teamspeak3-server_linux-amd64
 
 ADD /scripts/ /opt/scripts/
 RUN chmod -R 774 /opt/scripts/
