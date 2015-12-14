@@ -29,11 +29,9 @@ VOLUME ["/data"]
 ADD http://dl.4players.de/ts/releases/3.0.11.4/teamspeak3-server_linux-amd64-3.0.11.4.tar.gz /tmp
 RUN tar -C /opt -xzf /tmp/teamspeak3-server_linux-amd64-3.0.11.4.tar.gz && rm /tmp/teamspeak3-server_linux-amd64-3.0.11.4.tar.gz
 
-RUN echo before ADD scripts
 ADD /scripts/ /opt/scripts/
 RUN chmod -R 774 /opt/scripts/
 
-RUN echo after ADD scripts
 # Listen to required ports
 EXPOSE 9987/udp 30033 10011
 # Port 9987/udp is default TeamSpeak 3 server port
