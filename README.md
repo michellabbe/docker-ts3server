@@ -17,12 +17,3 @@ Note: only port 9987/udp is mandatory.
 
 The script does look for an sqlite db in the linked host-folder.
 If its found, a symlink is created to the ts3-folder inside the container.
-This means the server should use your old ts3 db if present.
-If not present it will create a new one.
-
-Right now this will NOT be created under the linked host-folder!
-The problem here is i cant tell the TS3 server to create the db in 
-specific folder.
-
-Creating a empty file and then linking this did not work either since 
-TS3 is then complaining its no sqlite db.
