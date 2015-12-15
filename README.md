@@ -1,6 +1,6 @@
 # docker: ts3server
 
-This is a Docker image to run a [TeamSpeak 3](http://teamspeak.com/) server.
+This is a Docker image to run a [TeamSpeak 3](http://www.teamspeak.com/) server.
 
 ### Pulling from Docker hub
 If you want to obtain the image from Docker registry, and link it with local files in /docker-persist/ts3server dir, you can use the following commands:
