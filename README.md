@@ -10,7 +10,7 @@ docker pull mlabbe/ts3server
 ### Running the image
 In order to run the TeamSpeak 3 Server, use the following:
 ```
-docker run --restart=unless-stopped --name=ts3server -d -p 9987:9987/udp -p 30033:30033 -p 10011:10011 -v /docker-static/ts3server:/data mlabbe/ts3server
+docker run --restart=unless-stopped --name=ts3server -d -p 9987:9987/udp -p 30033:30033 -p 10011:10011 -v /docker-persist/ts3server:/data mlabbe/ts3server
 ```
 
 Note: only port 9987/udp is mandatory.
