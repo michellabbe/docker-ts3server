@@ -1,4 +1,5 @@
 FROM debian:wheezy
+	# no real need for latest version, and wheezy = 85 MB vs latest = 125 MB
 
 MAINTAINER Michel Labbe
 
