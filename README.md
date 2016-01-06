@@ -35,10 +35,10 @@ You can also use different port(s) if you want.  You can keep the default built-
 The script will create symlinks to move sqlite database & config files to your persistent storage folder (existing files will be reused and missing files will be created).
 
 **IMPORTANT**: if you bring files from another TeamSpeak3 server, make sure you edit paths in _ts3server.ini_ accordingly:
-- licensepath=/data/
-- query_ip_whitelist=/data/query_ip_whitelist.txt
-- query_ip_blacklist=/data/query_ip_blacklist.txt
-- logpath=/data/logs
+- `licensepath=/data/`
+- `query_ip_whitelist=/data/query_ip_whitelist.txt`
+- `query_ip_blacklist=/data/query_ip_blacklist.txt`
+- `logpath=/data/logs`
 
 ### First Run
 If no database exist in the persistent storage folder, a new database will be created. Make sure you check the logfile, using the following command:
