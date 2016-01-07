@@ -26,7 +26,7 @@ In order to run the TeamSpeak 3 Server, use the following:
 docker run --restart=unless-stopped --name=ts3server -d -p 9987:9987/udp -p 30033:30033 -p 10011:10011 -v {FOLDER}:/data mlabbe/ts3server
 ```
 
-You can bind only port `9987/udp` if you don't need Server Query and File Transfer.
+You can bind only port `9987/udp` if you don't need ServerQuery and File Transfers.
 
 You can also use different port(s) if you want.  You can keep the default built-in ports inside the container and just map them to different ports on the host, e.g.:
 
