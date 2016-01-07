@@ -19,7 +19,7 @@ RUN TS_VERSION=3.0.11.4   && \
 # Listen to required ports
 EXPOSE 9987/udp 30033 10011
   # Port 9987/udp is default TeamSpeak 3 server port
-  # Port 30033 is used for File transfer
-  # Port 10011 is used for Server Query
+  # Port 30033 is used for File Transfers
+  # Port 10011 is used for ServerQuery
 
 ENTRYPOINT ["/opt/scripts/docker-ts3.sh"]
