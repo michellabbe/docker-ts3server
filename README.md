@@ -1,6 +1,13 @@
 # docker: ts3server
 
-This is a Docker image to run a [TeamSpeak 3](http://www.teamspeak.com/) server with persistent data moved to a persistent storage folder.
+This is a Docker image to run a [TeamSpeak 3](http://www.teamspeak.com/) server.
+
+I'm doing my best to implement and/or improve the best parts from other available images:
+- Database/ini/whitelist/blacklist files and files/logs folders are stored on persistent storage folder.
+- If non-existent, these files/folders are also created directly on persistent storage folder.
+- Runs as non-root user
+- Small image size (less than 100 MB)
+- Small number of layers (only 7)
 
 Please note that Docker 1.9 or later is required for persistent storage.
 
@@ -13,6 +20,11 @@ chown 1000:1000 {FOLDER}
 Replace `{FOLDER}` with an absolute path on the Docker host (e.g. `/docker-persist/ts3server`).  This `{FOLDER}` on the host will be mapped as `/data` inside the container and this is where your database and some other files will be stored.
 
 If you want to backup your TeamSpeak 3 Server files, this `{FOLDER}` on the host is the one you need to backup.
+
+Since the server runs with a non-root user, you need to make sure to set permissions properly after moving files manually to the persistent storage folder.  This can be done with the following command:
+```
+chown -R 1000:1000 {FOLDER}
+```
 
 ### Pulling from Docker Hub
 To pull the latest image from Docker registry, use the following command:
