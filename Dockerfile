@@ -1,11 +1,10 @@
-#FROM alpine:latest
 FROM frolvlad/alpine-glibc
 
 MAINTAINER Michel Labbe
 
 COPY /scripts/ /opt/scripts/
 
-RUN apk add --update bash wget  && \
+RUN apk add --update wget  && \
     /opt/scripts/getlatest-ts3.sh
 
 USER teamspeak
