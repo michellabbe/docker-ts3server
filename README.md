@@ -1,40 +1,49 @@
+[![Docker Stars](https://img.shields.io/docker/stars/mlabbe/ts3server.svg)](https://hub.docker.com/r/mlabbe/ts3server/) [![Docker Pulls](https://img.shields.io/docker/pulls/mlabbe/ts3server.svg)](https://hub.docker.com/r/mlabbe/ts3server/)
+
 # docker: ts3server
 
 This is a Docker image to run a [TeamSpeak 3](http://www.teamspeak.com/) server.
 
-I'm doing my best to implement and/or improve the best parts from other available images:
 - Database/ini/whitelist/blacklist files and files/logs folders are stored on persistent storage folder.
 - If non-existent, these files/folders are also created directly on persistent storage folder.
 - Runs as non-root user
-- Small image size (less than 100 MB)
-- Small number of layers (only 7)
+- Small image size
+- Small number of layers
+
+Total size of this image is only:
+
+[![](https://badge.imagelayers.io/mlabbe/ts3server:latest.svg)](https://imagelayers.io/?images=mlabbe/ts3server:latest)
 
 Please note that Docker 1.9 or later is required for persistent storage.
 
+________________________________________
 ### Prepare folder for persistent storage
 Create a folder on your Docker host that will be used for persistent data in the ts3server container:
-```
+```sh
 mkdir {FOLDER}
 chown 1000:1000 {FOLDER}
 ```
 Replace `{FOLDER}` with an absolute path on the Docker host (e.g. `/docker-persist/ts3server`).  This `{FOLDER}` on the host will be mapped as `/data` inside the container and this is where your database and some other files will be stored.
 
-If you want to backup your TeamSpeak 3 Server files, this `{FOLDER}` on the host is the one you need to backup.
-
 Since the server runs with a non-root user, you need to make sure to set permissions properly after moving files manually to the persistent storage folder.  This can be done with the following command:
-```
+```sh
 chown -R 1000:1000 {FOLDER}
 ```
 
+
+If you want to backup your TeamSpeak 3 Server files, this `{FOLDER}` on the host is the one you need to backup.
+
+________________________________________
 ### Pulling from Docker Hub
 To pull the latest image from Docker registry, use the following command:
-```
+```sh
 docker pull mlabbe/ts3server
 ```
 
+________________________________________
 ### Running the image
 In order to run the TeamSpeak 3 Server, use the following:
-```
+```sh
 docker run --restart=unless-stopped --name=ts3server -d -p 9987:9987/udp -p 30033:30033 -p 10011:10011 -v {FOLDER}:/data mlabbe/ts3server
 ```
 
@@ -52,9 +61,10 @@ The script will create symlinks to move sqlite database & config files to your p
 - `query_ip_blacklist=/data/query_ip_blacklist.txt`
 - `logpath=/data/logs`
 
+________________________________________
 ### First Run
 If no database exist in the persistent storage folder, a new database will be created. Make sure you check the logfile, using the following command:
-```
+```sh
 docker logs ts3server
 ```
 
@@ -81,9 +91,10 @@ You will need your randomized ServerAdmin password/token to manage your new serv
 ```
 **Write them down for later use.**
 
+________________________________________
 ### Upgrading
 Since the config/data files should be stored in the persistent storage folder, just pull the newer image from Docker Hub, then stop/remove the container and create it again:
-```
+```sh
 docker pull mlabbe/ts3server
 docker stop ts3server
 docker rm ts3server
