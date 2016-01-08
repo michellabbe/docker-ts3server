@@ -8,7 +8,4 @@ wget http://dl.4players.de/ts/releases/$TS_VERSION/teamspeak3-server_linux-amd64
 
 tar -C /opt -xzf /opt/teamspeak3-server_linux-amd64-$TS_VERSION.tar.gz
 rm /opt/teamspeak3-server_linux-amd64-$TS_VERSION.tar.gz
-adduser -g "" -s /bin/false -D -H -u 1000 teamspeak
-chown -R 1000:1000 /opt/teamspeak3-server_linux-amd64/
-chown -R 1000:1000 /opt/scripts/
-chmod -R 774 /opt/scripts/
+
