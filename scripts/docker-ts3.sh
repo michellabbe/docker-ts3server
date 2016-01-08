@@ -6,7 +6,7 @@ echo " ----- docker-ts3 ------"
 echo " ======================="
 
 if ! [ -d $DATADIR/files ]; then
-    echo "No files folder found in the persistent storage folder. Creating new one."
+    echo "No files folder found in the persistent storage folder. A new one will be created."
     mkdir -p $DATADIR/files
 fi
 echo "Linking the files folder to persistent storage folder."
