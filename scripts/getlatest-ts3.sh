@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 TS_VERSION=`wget --no-check-certificate -qO - https://www.server-residenz.com/tools/ts3versions.json|grep latest|awk '{print $2}'|sed s/\"//g|sed s/,//g`
 echo "Installing Teamspeak ${TS_VERSION}"
