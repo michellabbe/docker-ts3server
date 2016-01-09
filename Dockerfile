@@ -4,12 +4,13 @@ MAINTAINER Michel Labbe
 
 COPY /scripts/ /opt/scripts/
 
-RUN apk add --update wget
-RUN /opt/scripts/getlatest-ts3.sh
-RUN adduser -g "" -s /bin/false -D -H -u 1000 teamspeak   && \
-    chown -R teamspeak /opt/teamspeak3-server_linux-amd64/   && \
-    chown -R teamspeak /opt/scripts/   && \
-    chmod -R 744 /opt/scripts/
+RUN apk add --update wget   && \
+    chmod -R 744 /opt/scripts/   && \
+    /opt/scripts/getlatest-ts3.sh   && \
+    adduser -g "" -s /bin/false -D -H -u 1000 teamspeak   && \
+    chown -R 1000:1000 /opt/teamspeak3-server_linux-amd64/   && \
+    chown -R 1000:1000 /opt/scripts/
+    
 
 USER teamspeak
 
