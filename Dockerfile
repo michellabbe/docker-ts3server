@@ -14,8 +14,8 @@ RUN TS_VERSION=3.0.11.4   && \
     rm /opt/teamspeak3-server_linux-amd64-$TS_VERSION.tar.gz   && \
     adduser -g "" -s /bin/false -D -H -u 1000 teamspeak   && \
     chown -R 1000:1000 /opt/teamspeak3-server_linux-amd64/   && \
-    chown -R 1000:1000 /opt/scripts/
-   
+    chown -R 1000:1000 /opt/scripts/   && \
+    chmod -R 744 /opt/scripts/
 
 USER teamspeak
 
