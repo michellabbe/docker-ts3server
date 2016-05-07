@@ -6,8 +6,6 @@ COPY /scripts/ /opt/scripts/
 
 RUN TS_VERSION=3.0.12.4 \
     && apk add --update wget bzip2 \
-    &&  #RUN chmod -R 744 /opt/scripts/ \
-    &&  #RUN /opt/scripts/getlatest-ts3.sh \
     && wget http://dl.4players.de/ts/releases/$TS_VERSION/teamspeak3-server_linux_amd64-$TS_VERSION.tar.bz2 \
             -O /opt/teamspeak3-server_linux_amd64-$TS_VERSION.tar.bz2 \
     && tar -C /opt -jxvf /opt/teamspeak3-server_linux_amd64-$TS_VERSION.tar.bz2 \
