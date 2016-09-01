@@ -1,10 +1,11 @@
-FROM frolvlad/alpine-glibc
+#FROM frolvlad/alpine-glibc
+FROM frolvlad/alpine-glibc:alpine-3.4
 
 MAINTAINER Michel Labbe
 
 COPY /scripts/ /opt/scripts/
 
-RUN TS_VERSION=3.0.12.4 \
+RUN TS_VERSION=3.0.13.3 \
     && apk add --update wget bzip2 \
     && wget http://dl.4players.de/ts/releases/$TS_VERSION/teamspeak3-server_linux_amd64-$TS_VERSION.tar.bz2 \
             -O /opt/teamspeak3-server_linux_amd64-$TS_VERSION.tar.bz2 \
