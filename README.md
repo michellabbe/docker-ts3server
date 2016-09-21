@@ -12,7 +12,7 @@ This is a Docker image to run a [TeamSpeak 3](http://www.teamspeak.com/) server.
 
 Total size of this image is only:
 
-[![](https://images.microbadger.com/badges/version/mlabbe/ts3server.svg)](https://microbadger.com/images/mlabbe/ts3server)
+[![](https://images.microbadger.com/badges/image/mlabbe/ts3server.svg)](https://microbadger.com/images/mlabbe/ts3server)
 
 Please note that Docker 1.9 or later is required for persistent storage.
 
