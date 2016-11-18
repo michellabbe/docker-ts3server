@@ -8,7 +8,7 @@ COPY /scripts/ /opt/scripts/
 RUN TS_VERSION=3.0.13.6 \
     && apk add --update wget bzip2 \
     && rm -rf /var/cache/apk/* \
-        && wget http://dl.4players.de/ts/releases/$TS_VERSION/teamspeak3-server_linux_amd64-$TS_VERSION.tar.bz2 \
+    && wget http://dl.4players.de/ts/releases/$TS_VERSION/teamspeak3-server_linux_amd64-$TS_VERSION.tar.bz2 \
             -O /opt/teamspeak3-server_linux_amd64-$TS_VERSION.tar.bz2 \
     && tar -C /opt -jxvf /opt/teamspeak3-server_linux_amd64-$TS_VERSION.tar.bz2 \
     && rm /opt/teamspeak3-server_linux_amd64-$TS_VERSION.tar.bz2 \
