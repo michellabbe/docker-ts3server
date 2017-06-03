@@ -1,5 +1,5 @@
 FROM frolvlad/alpine-glibc
-#FROM frolvlad/alpine-glibc:alpine-3.5
+#FROM frolvlad/alpine-glibc:alpine-3.6
 
 MAINTAINER Michel Labbe
 
