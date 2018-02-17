@@ -45,7 +45,7 @@ docker pull mlabbe/ts3server
 ________________________________________
 ### Important changes in v3.1.0+
 -Accounting communication is now HTTPS, so adjustments to your firewall rules may be required!
--You need to accept license agreement or the server will not start:
+-You need to [accept license agreement](https://support.teamspeakusa.com/index.php?/Knowledgebase/Article/View/344/16/how-to-accept-the-server-license-agreement-server--310) or the server will not start:
 - Easy way: add `-e TS3SERVER_LICENSE=view` in your `docker run` command, like below.
 - Permanent way: create a file named `.ts3server_license_accepted` (content doesn't matter and could be empty) in your data folder.
 ________________________________________
