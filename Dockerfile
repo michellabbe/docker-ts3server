@@ -6,7 +6,7 @@ MAINTAINER Michel Labbe
 COPY /scripts/ /opt/scripts/
 
 RUN TS_VERSION=3.1.0 \
-    && apk add --update wget bzip2 \
+    && apk add --update wget bzip2 ca-certificates \
     && rm -rf /var/cache/apk/* \
     && wget http://dl.4players.de/ts/releases/$TS_VERSION/teamspeak3-server_linux_amd64-$TS_VERSION.tar.bz2 \
             -O /opt/teamspeak3-server_linux_amd64-$TS_VERSION.tar.bz2 \
