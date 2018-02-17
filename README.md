@@ -1,6 +1,9 @@
 [![Docker Stars](https://img.shields.io/docker/stars/mlabbe/ts3server.svg)](https://hub.docker.com/r/mlabbe/ts3server/) [![Docker Pulls](https://img.shields.io/docker/pulls/mlabbe/ts3server.svg)](https://hub.docker.com/r/mlabbe/ts3server/)
 
 # docker: ts3server
+________________________________________
+Attention: Teamspeak developers have now released an [official docker image](https://hub.docker.com/_/teamspeak/) (also based on Alpine linux).
+________________________________________
 
 This is a Docker image to run a [TeamSpeak 3](http://www.teamspeak.com/) server.
 
@@ -39,12 +42,17 @@ To pull the latest image from Docker registry, use the following command:
 ```sh
 docker pull mlabbe/ts3server
 ```
-
+________________________________________
+### Important changes in v3.1.0+
+-Accounting communication is now HTTPS, so adjustments to your firewall rules may be required!
+-You need to accept license agreement or the server will not start:
+- Easy way: add `-e TS3SERVER_LICENSE=view` in your `docker run` command, like below.
+- Permanent way: create a file named `.ts3server_license_accepted` (content doesn't matter and could be empty) in your data folder.
 ________________________________________
 ### Running the image
 In order to run the TeamSpeak 3 Server, use the following:
 ```sh
-docker run --restart=unless-stopped --name=ts3server -d -p 9987:9987/udp -p 30033:30033 -p 10011:10011 -v {FOLDER}:/data mlabbe/ts3server
+docker run --restart=unless-stopped --name=ts3server -d -e TS3SERVER_LICENSE=view -p 9987:9987/udp -p 30033:30033 -p 10011:10011 -v {FOLDER}:/data mlabbe/ts3server
 ```
 
 You can bind only port `9987/udp` if you don't need ServerQuery and File Transfers.
