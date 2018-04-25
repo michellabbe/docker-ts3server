@@ -5,13 +5,15 @@ echo " ======================="
 echo " ----- docker-ts3 ------"
 echo " ======================="
 
+cd /opt/teamspeak3-server_linux_alpine
+
 if ! [ -d $DATADIR/files ]; then
     echo "No files folder found in the persistent storage folder. A new one will be created."
     mkdir -p $DATADIR/files
 fi
 echo "Linking the files folder to persistent storage folder."
-rm -rf /opt/teamspeak3-server_linux_amd64/files
-ln -s $DATADIR/files /opt/teamspeak3-server_linux_amd64/files
+rm -rf /opt/teamspeak3-server_linux_alpine/files
+ln -s $DATADIR/files /opt/teamspeak3-server_linux_alpine/files
 
 
 # Check if ts3server.ini exists in the persistent storage folder.
@@ -47,10 +49,10 @@ if [ -f $DATADIR/ts3server.ini ]
                     else
                         echo "Using existing database file in the persistent storage folder."
                 fi
-                ln -s $DATADIR/ts3server.sqlitedb /opt/teamspeak3-server_linux_amd64/ts3server.sqlitedb 
+                ln -s $DATADIR/ts3server.sqlitedb /opt/teamspeak3-server_linux_alpine/ts3server.sqlitedb 
         fi
         echo "Starting ts3server..."
-        /opt/teamspeak3-server_linux_amd64/ts3server_minimal_runscript.sh \
+        /opt/teamspeak3-server_linux_alpine/ts3server \
                 inifile=$DATADIR/ts3server.ini
     else
         echo "No ts3server.ini file found in the persistent storage folder. A new one will be created."
@@ -64,14 +66,14 @@ if [ -f $DATADIR/ts3server.ini ]
                 echo "Using existing database file in the persistent storage folder."
         fi
         # Link database file to persistent storage folder
-        ln -s $DATADIR/ts3server.sqlitedb /opt/teamspeak3-server_linux_amd64/ts3server.sqlitedb 
+        ln -s $DATADIR/ts3server.sqlitedb /opt/teamspeak3-server_linux_alpine/ts3server.sqlitedb 
         
         # Create new ini file
         echo "Starting ts3server with default parameters..."
-        /opt/teamspeak3-server_linux_amd64/ts3server_minimal_runscript.sh \
+        /opt/teamspeak3-server_linux_alpine/ts3server \
             query_ip_whitelist=$DATADIR/query_ip_whitelist.txt \
             query_ip_blacklist=$DATADIR/query_ip_blacklist.txt \
-            logpath=$DATADIR/logs/ \
+            logpath=$DATADIR/logs \
             licensepath=$DATADIR/ \
             inifile=$DATADIR/ts3server.ini \
             createinifile=1
