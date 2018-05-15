@@ -5,7 +5,7 @@ MAINTAINER Michel Labbe
 
 COPY /scripts/ /opt/scripts/
 
-RUN TS_VERSION=3.1.3 \
+RUN TS_VERSION=3.2.0 \
     && apk add --no-cache ca-certificates libstdc++ \
     && wget http://dl.4players.de/ts/releases/$TS_VERSION/teamspeak3-server_linux_alpine-$TS_VERSION.tar.bz2 \
             -O /opt/teamspeak3-server_linux_alpine-$TS_VERSION.tar.bz2 \
