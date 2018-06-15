@@ -7,6 +7,8 @@ ________________________________________
 
 This is a Docker image to run a [TeamSpeak 3](http://www.teamspeak.com/) server.
 
+[![TeamSpeak](https://github.com/michellabbe/docker-ts3server/raw/master/TeamSpeak-dark.png)](http://www.teamspeak.com)
+
 - Database/ini/whitelist/blacklist files and files/logs folders are stored on persistent storage folder.
 - If non-existent, these files/folders are also created directly on persistent storage folder.
 - Runs as non-root user
