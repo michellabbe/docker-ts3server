@@ -2,7 +2,7 @@
 
 # docker: ts3server
 ________________________________________
-Attention: Teamspeak developers have now released an [official docker image](https://hub.docker.com/_/teamspeak/) (also based on Alpine linux).
+Attention: This image is no longer maintained.  Use the official [teamspeak](https://hub.docker.com/_/teamspeak/) docker image instead.
 ________________________________________
 
 This is a Docker image to run a [TeamSpeak 3](http://www.teamspeak.com/) server.
